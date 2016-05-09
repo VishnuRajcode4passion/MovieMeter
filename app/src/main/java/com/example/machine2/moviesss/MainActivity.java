@@ -1,11 +1,13 @@
 package com.example.machine2.moviesss;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.GridView;
 
 public class MainActivity extends BaseActivity implements NetworkListener {
     GridView SetPosters;
+
 
     UrlProvider urlProvider;
     NetworkCommunicator networkCommunicator;
@@ -21,7 +23,9 @@ public class MainActivity extends BaseActivity implements NetworkListener {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         SetPosters = (GridView)findViewById(R.id.gridview);
+        dialogShow();
         urlProvider = new UrlProvider();
         popularUrl = urlProvider.popularUrl;
         topratedUrl = urlProvider.topRatedUrl;
@@ -31,8 +35,11 @@ public class MainActivity extends BaseActivity implements NetworkListener {
 
     }
 
+
     @Override
-    public void setImageAdapter(ImageAdapter imageAdapter) {
+    public void setImageAdapter(ImageAdapter imageAdapter)
+    {
+        dialogDismiss();
         SetPosters.setAdapter(imageAdapter);
 
     }
