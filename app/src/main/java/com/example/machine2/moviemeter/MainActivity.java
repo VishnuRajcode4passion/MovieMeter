@@ -1,4 +1,4 @@
-package com.example.machine2.moviesss;
+package com.example.machine2.moviemeter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,8 +12,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//paulu
+
 
     }
-    //commited.
 }
