@@ -1,4 +1,4 @@
-package com.example.machine2.moviemeter;
+package com.example.machine2.moviesss;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;

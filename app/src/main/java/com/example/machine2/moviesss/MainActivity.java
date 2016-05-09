@@ -1,4 +1,4 @@
-package com.example.machine2.moviemeter;
+package com.example.machine2.moviesss;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
