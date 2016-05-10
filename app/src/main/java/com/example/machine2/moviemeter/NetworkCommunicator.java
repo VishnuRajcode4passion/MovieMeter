@@ -12,6 +12,8 @@ import cz.msebera.android.httpclient.Header;
  * Created by machine2 on 09/05/16.
  */
 public class NetworkCommunicator {
+
+    private static final String TAG = "NetworkCommunicator";
     AsyncHttpClient client;
     Context context;
 
@@ -66,7 +68,7 @@ public class NetworkCommunicator {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-//                Toast.makeText(context,"NETWORK ERROR " + error,Toast.LENGTH_LONG).show();
+
                 NetworkErrors networkErrors = new NetworkErrors();
                 networkErrors.showError(context,statusCode,error);
             }
