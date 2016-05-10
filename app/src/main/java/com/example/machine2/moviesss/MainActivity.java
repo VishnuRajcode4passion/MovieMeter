@@ -1,10 +1,19 @@
 package com.example.machine2.moviesss;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.GridView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity implements NetworkListener {
+    GridView SetPosters;
+
+
+    UrlProvider urlProvider;
+    NetworkCommunicator networkCommunicator;
+
+    String popularUrl;
+    String topratedUrl;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -12,9 +21,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//paulu
+
+
+        SetPosters = (GridView)findViewById(R.id.gridview);
+        dialogShow();
+        urlProvider = new UrlProvider();
+        popularUrl = urlProvider.popularUrl;
+        topratedUrl = urlProvider.topRatedUrl;
+
+        networkCommunicator=new NetworkCommunicator(this,popularUrl,topratedUrl);
+        networkCommunicator.popularMovies(this);
 
     }
-    //commited.
+
+
+    @Override
+    public void setImageAdapter(ImageAdapter imageAdapter)
+    {
+        dialogDismiss();
+        SetPosters.setAdapter(imageAdapter);
+
+    }
 }
- //gokul
