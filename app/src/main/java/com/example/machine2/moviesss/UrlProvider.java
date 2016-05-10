@@ -3,7 +3,13 @@ package com.example.machine2.moviesss;
 /**
  * Created by machine2 on 09/05/16.
  */
-public class UrlProvider  {
+public class UrlProvider
+{
+
+
+
+
+
 
     public static String topRatedUrl = "https://api.themoviedb.org/3/movie/top_rated?api_key=efc0d91dd29ee74d0c55029e31266793";
     public static String popularUrl = "https://api.themoviedb.org/3/movie/popular?";

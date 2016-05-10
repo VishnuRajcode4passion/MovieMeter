@@ -21,6 +21,7 @@ public class ImageAdapter extends BaseAdapter {
     MoviesResponse.ResultsBean item;
     ImageView img;
 
+
     String imageUrl;
     String image;
 
