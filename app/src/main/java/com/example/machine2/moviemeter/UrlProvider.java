@@ -5,11 +5,7 @@ package com.example.machine2.moviemeter;
  */
 public class UrlProvider
 {
-
-
-
-
-
+ //All the Urls are declared here
 
     public static String topRatedUrl = "https://api.themoviedb.org/3/movie/top_rated?";
     public static String popularUrl = "https://api.themoviedb.org/3/movie/popular?";

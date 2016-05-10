@@ -6,6 +6,9 @@ import android.widget.Toast;
 /**
  * Created by machine2 on 09/05/16.
  */
+
+//Network problems are shows in this class
+
 public class NetworkErrors {
 
     public void showError(Context context, int statusCode, Throwable error)

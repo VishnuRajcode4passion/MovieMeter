@@ -11,6 +11,8 @@ import android.widget.GridView;
 
 public class MainActivity extends BaseActivity implements NetworkListener,NavigationView.OnNavigationItemSelectedListener  {
 
+ //variable declaration
+
     GridView setPosters;
     NavigationView navigationView;
     DrawerLayout drawer;
@@ -28,12 +30,14 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_activity_main);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         setPosters = (GridView)findViewById(R.id.gridview);
-
         setSupportActionBar(toolbar);
+
+ //calling the progress dialog from the Base activty
 
         dialogShow();
 
@@ -45,19 +49,22 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
         popularUrl = urlProvider.popularUrl;
         topratedUrl = urlProvider.topRatedUrl;
 
+//Calling the NetworkCommunicator and pass the Urls as arguments
         networkCommunicator = new NetworkCommunicator(this,popularUrl,topratedUrl);
         networkCommunicator.popularMovies(this);
 
         getSupportActionBar().setTitle("Popular");
     }
 
+//Set the posters on the Gridview
     @Override
     public void setImageAdapter(ImageAdapter imageAdapter) {
+
         dialogDismiss();
-       setPosters.setAdapter(imageAdapter);
+        setPosters.setAdapter(imageAdapter);
 
     }
-
+//Manages the clicks on the Navigation Menu's
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         MenuSelector menuSelector = new MenuSelector(this, networkCommunicator,drawer);
