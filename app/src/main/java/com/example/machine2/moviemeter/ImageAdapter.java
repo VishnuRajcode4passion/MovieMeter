@@ -1,6 +1,7 @@
-package com.example.machine2.moviesss;
+package com.example.machine2.moviemeter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.loopj.android.http.RequestParams;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -16,9 +18,14 @@ import java.util.List;
  * Created by machine2 on 09/05/16.
  */
 public class ImageAdapter extends BaseAdapter {
+    private static final String TAG = "ImageAdapter";
+
+
     Context context;
     List<MoviesResponse.ResultsBean> results;
     MoviesResponse.ResultsBean item;
+    UrlProvider urlProvider;
+    String posterUrl;
     ImageView img;
 
     String imageUrl;
@@ -31,6 +38,8 @@ public class ImageAdapter extends BaseAdapter {
         this.context = context;
         this.results = results;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        posterUrl=urlProvider.posterUrl;
+
     }
 
     //getting the count of item
@@ -64,9 +73,15 @@ public class ImageAdapter extends BaseAdapter {
         TextView textView = (TextView) rowView.findViewById(R.id.textView);
         int id = item.getId();
         textView.setText(String.valueOf(id));
+        Log.d(TAG, "id=" + id);
+
         img = (ImageView) rowView.findViewById(R.id.imageView);
         imageUrl = item.getPoster_path();
-        image = "https://image.tmdb.org/t/p/w185/" + imageUrl + "?api_key=efc0d91dd29ee74d0c55029e31266793";
+
+        RequestParams params = new RequestParams();
+        params.put("api_key","efc0d91dd29ee74d0c55029e31266793");
+        image = posterUrl + imageUrl + params;
+
         //Loading image from  url into imageView
         Picasso.with(context).load(image).resize(394, 400).into(img);
         return rowView;
