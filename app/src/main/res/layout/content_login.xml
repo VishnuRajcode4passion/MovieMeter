@@ -93,7 +93,7 @@
         android:id="@+id/imageView6"
         android:src="@drawable/login"
         android:layout_below="@+id/card_view2"
-        android:layout_alignStart="@+id/checkBox" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -106,7 +106,7 @@
 
     <CheckBox
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:text="Forgot Password?"
         android:id="@+id/checkBox"
         android:checked="false"
