@@ -3,7 +3,13 @@ package com.example.machine2.moviemeter;
 /**
  * Created by machine2 on 09/05/16.
  */
-public class UrlProvider  {
+public class UrlProvider
+{
+
+
+
+
+
 
     public static String topRatedUrl = "https://api.themoviedb.org/3/movie/top_rated?";
     public static String popularUrl = "https://api.themoviedb.org/3/movie/popular?";

@@ -28,6 +28,7 @@ public class ImageAdapter extends BaseAdapter {
     String posterUrl;
     ImageView img;
 
+
     String imageUrl;
     String image;
 
