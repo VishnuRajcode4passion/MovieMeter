@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by machine2 on 09/05/16.
  */
-public class ImageAdapter extends BaseAdapter {
+public class MovieImageAdapter extends BaseAdapter {
 
     Context context;
     List<MoviesResponse.ResultsBean> results;
@@ -32,7 +32,7 @@ public class ImageAdapter extends BaseAdapter {
 
     private static LayoutInflater inflater = null;
 
-    public ImageAdapter(Context context, List<MoviesResponse.ResultsBean> results) {
+    public MovieImageAdapter(Context context, List<MoviesResponse.ResultsBean> results) {
         // TODO Auto-generated constructor stub
         this.context = context;
         this.results = results;

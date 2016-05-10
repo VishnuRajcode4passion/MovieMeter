@@ -9,7 +9,7 @@ import android.view.MenuItem;
 /**
  * Created by machine2 on 10/05/16.
  */
-public class MenuSelector {
+public class NavigationMenuSelector {
 
 //Variable and class declarations
     Context context;
@@ -18,7 +18,7 @@ public class MenuSelector {
     String title;
 
  //The menu selctions in the NavigationDrawer activity
-    public MenuSelector(Context context, NetworkCommunicator networkCommunication, DrawerLayout drawer) {
+    public NavigationMenuSelector(Context context, NetworkCommunicator networkCommunication, DrawerLayout drawer) {
         this.context = context;
         this.networkCommunication = networkCommunication;
         this.drawer = drawer;

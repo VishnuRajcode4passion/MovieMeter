@@ -6,5 +6,5 @@ package com.example.machine2.moviemeter;
 //Interface Declared for Managing Posters of the Movies
 public interface NetworkListener {
 
-    void setImageAdapter(ImageAdapter imageAdapter);
+    void setImageAdapter(MovieImageAdapter imageAdapter);
 }

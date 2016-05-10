@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
 
 //Set the posters on the Gridview
     @Override
-    public void setImageAdapter(ImageAdapter imageAdapter) {
+    public void setImageAdapter(MovieImageAdapter imageAdapter) {
 
         dialogDismiss();
         setPosters.setAdapter(imageAdapter);
@@ -67,7 +67,8 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
 //Manages the clicks on the Navigation Menu's
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        MenuSelector menuSelector = new MenuSelector(this, networkCommunicator,drawer);
+
+        NavigationMenuSelector menuSelector = new NavigationMenuSelector(this, networkCommunicator,drawer);
         String title = menuSelector.getItem(item);
         getSupportActionBar().setTitle(title);
         drawer.closeDrawer(GravityCompat.START);
