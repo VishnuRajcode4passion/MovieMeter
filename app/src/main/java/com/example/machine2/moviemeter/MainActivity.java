@@ -79,6 +79,6 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
         String title = menuSelector.getItem(item);
         getSupportActionBar().setTitle(title);
         drawer.closeDrawer(GravityCompat.START);
-        return false;
+        return true;
     }
 }
