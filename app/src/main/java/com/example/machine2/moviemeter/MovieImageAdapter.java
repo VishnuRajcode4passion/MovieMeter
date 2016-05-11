@@ -1,9 +1,11 @@
 package com.example.machine2.moviemeter;
 
 import android.content.Context;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +18,8 @@ import java.util.List;
 /**
  * Created by machine2 on 09/05/16.
  */
-public class MovieImageAdapter extends BaseAdapter {
+public class MovieImageAdapter extends BaseAdapter
+{
 
     Context context;
     List<MoviesResponse.ResultsBean> results;
@@ -32,12 +35,13 @@ public class MovieImageAdapter extends BaseAdapter {
 
     private static LayoutInflater inflater = null;
 
-    public MovieImageAdapter(Context context, List<MoviesResponse.ResultsBean> results) {
+    public MovieImageAdapter(Context context, List<MoviesResponse.ResultsBean> results)
+    {
         // TODO Auto-generated constructor stub
         this.context = context;
         this.results = results;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        posterUrl=urlProvider.posterUrl;
+        posterUrl = urlProvider.posterUrl;
 
     }
 
@@ -67,7 +71,8 @@ public class MovieImageAdapter extends BaseAdapter {
     //a single row with required views is inflated into listview as many times depending on the count of items.
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent)
+    {
         // TODO Auto-generated method stub
         View rowView;
         rowView = inflater.inflate(R.layout.single_row_image_adapter, null);

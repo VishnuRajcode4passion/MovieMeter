@@ -48,5 +48,6 @@ public class LoginActivity extends AppCompatActivity
             Toast.makeText(this, "Press the back button once again to close the application.", Toast.LENGTH_SHORT).show();
             backButtonCount++;
 
-        }    }
+        }
+    }
 }
