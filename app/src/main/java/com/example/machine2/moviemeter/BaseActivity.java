@@ -1,6 +1,7 @@
-package com.example.machine2.moviesss;
+package com.example.machine2.moviemeter;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
 /**
@@ -9,8 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 public class BaseActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
 
-    public void dialogShow() {
-        progressDialog = new ProgressDialog(this);
+    public void dialogShow(Context context) {
+        progressDialog = new ProgressDialog(context);
         progressDialog.setTitle("Processing...");
         progressDialog.setMessage("Please wait.");
         progressDialog.setCancelable(false);
