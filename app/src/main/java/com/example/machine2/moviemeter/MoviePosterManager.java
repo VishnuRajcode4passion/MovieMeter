@@ -8,7 +8,9 @@ import com.google.gson.Gson;
 /**
  * Created by machine2 on 09/05/16.
  */
+//Manager class of the movie posters
 public class MoviePosterManager {
+
     private static final String TAG = "MoviePosterManager";
     Gson gson;
     MoviesResponse moviesResponse;

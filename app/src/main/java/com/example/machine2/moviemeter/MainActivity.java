@@ -50,6 +50,7 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
         topratedUrl = urlProvider.topRatedUrl;
 
 //Calling the NetworkCommunicator and pass the Urls as arguments
+
         networkCommunicator = new NetworkCommunicator(this,popularUrl,topratedUrl);
         networkCommunicator.popularMovies(this);
 
@@ -57,6 +58,7 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
     }
 
 //Set the posters on the Gridview
+
     @Override
     public void setImageAdapter(MovieImageAdapter imageAdapter) {
 
@@ -65,6 +67,7 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
 
     }
 //Manages the clicks on the Navigation Menu's
+    
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
