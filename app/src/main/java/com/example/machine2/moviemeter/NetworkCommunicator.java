@@ -11,9 +11,9 @@ import cz.msebera.android.httpclient.Header;
 /**
  * Created by machine2 on 09/05/16.
  */
-public class NetworkCommunicator {
+public class NetworkCommunicator extends BaseActivity {
 
- //Variables and class declartions
+    //Variables and class declartions
     private static final String TAG = "NetworkCommunicator";
     AsyncHttpClient client;
     Context context;
@@ -21,62 +21,71 @@ public class NetworkCommunicator {
     String popularUrl;
     String topratedUrl;
 
-//Constructor created
+    //Constructor created
     public NetworkCommunicator( Context context, String popularUrl, String topratedUrl) {
 
         this.context = context;
         this.popularUrl = popularUrl;
         this.topratedUrl = topratedUrl;
     }
-//method created for the popularMovies
+    //method created for the popularMovies
     public void popularMovies(final NetworkListener networkListener){
 
         client=new AsyncHttpClient();
-
         RequestParams params = new RequestParams();
         params.put("api_key","efc0d91dd29ee74d0c55029e31266793");
 
         client.get(popularUrl,params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                dialogShow(context);
+            }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                dialogDismiss();
                 MoviePosterManager popularMoviesManager = new MoviePosterManager(context,responseBody);
-                popularMoviesManager. poster(networkListener);
+                popularMoviesManager.poster(networkListener);
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-//                Toast.makeText(context,"NETWORK ERROR " + error,Toast.LENGTH_LONG).show();
+                //Toast.makeText(context,"NETWORK ERROR " + error,Toast.LENGTH_LONG).show();
                 NetworkErrors networkErrors = new NetworkErrors();
                 networkErrors.showError(context,statusCode,error);
             }
         });
     }
 
- //method created for the Toprated movies
+   //method created for the Toprated movies
     public void topRatedMovies(final NetworkListener networkListener){
 
         client=new AsyncHttpClient();
-
         RequestParams params = new RequestParams();
         params.put("api_key","efc0d91dd29ee74d0c55029e31266793");
 
         client.get(topratedUrl,params, new AsyncHttpResponseHandler() {
 
             @Override
+            public void onStart() {
+                dialogShow(context);
+            }
+
+            @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                dialogDismiss();
                 MoviePosterManager popularMoviesManager = new MoviePosterManager(context,responseBody);
-                popularMoviesManager. poster(networkListener);
+                popularMoviesManager.poster(networkListener);
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
                 NetworkErrors networkErrors = new NetworkErrors();
                 networkErrors.showError(context,statusCode,error);
             }
         });
     }
+
     public void movieDetails(final NetworkListener networkListener){
 
         client=new AsyncHttpClient();
@@ -100,6 +109,5 @@ public class NetworkCommunicator {
             }
         });
     }
-
 
 }

@@ -46,7 +46,6 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
 
  //calling the progress dialog from the Base activty
 
-        dialogShow();
 
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -94,7 +93,6 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
     public boolean onNavigationItemSelected(MenuItem item) {
 
         NavigationMenuSelector menuSelector = new NavigationMenuSelector(this, networkCommunicator,drawer);
-        dialogShow();
         String title = menuSelector.getItem(item);
         getSupportActionBar().setTitle(title);
         drawer.closeDrawer(GravityCompat.START);
