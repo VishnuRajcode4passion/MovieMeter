@@ -22,8 +22,6 @@ public class BaseActivity extends AppCompatActivity {
     public void dialogDismiss() {
         progressDialog.dismiss();
     }
-
-
 }
 
 
