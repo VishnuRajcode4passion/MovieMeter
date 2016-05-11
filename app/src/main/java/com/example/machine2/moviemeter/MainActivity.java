@@ -27,6 +27,7 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
 
     String popularUrl;
     String topratedUrl;
+    String detailsUrl;
     String movie_Id;
     TextView movieId;
     Toolbar toolbar;
@@ -54,6 +55,7 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
 
         popularUrl = urlProvider.popularUrl;
         topratedUrl = urlProvider.topRatedUrl;
+        detailsUrl = urlProvider.movieDetailsUrl;
 
 //Calling the NetworkCommunicator and pass the Urls as arguments
 
@@ -71,6 +73,7 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
                 movie_Id = (String)movieId.getText();
                 intent = new Intent(MainActivity.this,MovieDetailActivity.class);
                 intent.putExtra("id",movie_Id);
+                intent.putExtra("detailUrls",detailsUrl);
                 startActivity(intent);
 
 
@@ -83,7 +86,6 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
     @Override
     public void setImageAdapter(MovieImageAdapter imageAdapter) {
 
-        dialogDismiss();
         setPosters.setAdapter(imageAdapter);
 
     }

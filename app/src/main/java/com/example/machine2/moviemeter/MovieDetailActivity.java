@@ -19,14 +19,23 @@ public class MovieDetailActivity extends AppCompatActivity{
     TextView movieDuration;
     TextView movieDescription;
 
+    Integer runtime;
+    String title;
+    String overview;
+    String poster;
+    String releaseDate;
+    String movie_id;
+    String dataUrl;
+    Double rating;
+
     CheckBox favorite;
 
     ImageView moviePoster;
 
     ListView trailer;
     Bundle bundle;
-    String movie_id;
 
+    NetworkCommunicator networkCommunicator;
 
 
     @Override
@@ -43,6 +52,10 @@ public class MovieDetailActivity extends AppCompatActivity{
         trailer = (ListView)findViewById(R.id.listView);
 
         bundle = getIntent().getExtras();
-        movie_id = bundle.getString("selectedId");
+        movie_id = bundle.getString("id");
+        dataUrl = bundle.getString("detailUrls");
+        networkCommunicator=new NetworkCommunicator(this,movie_id,dataUrl);
+        networkCommunicator.movieDetails();
+
     }
 }

@@ -20,6 +20,12 @@ public class NetworkCommunicator extends BaseActivity {
 
     String popularUrl;
     String topratedUrl;
+    String movie_id;
+    String dataUrl;
+    String detailUrl;
+
+    MovieDetailActivity movieDetailActivity;
+
 
     //Constructor created
     public NetworkCommunicator( Context context, String popularUrl, String topratedUrl) {
@@ -28,6 +34,14 @@ public class NetworkCommunicator extends BaseActivity {
         this.popularUrl = popularUrl;
         this.topratedUrl = topratedUrl;
     }
+
+    public NetworkCommunicator(MovieDetailActivity movieDetailActivity, String movie_id,String dataUrl) {
+        this.movieDetailActivity = movieDetailActivity;
+        this.movie_id = movie_id;
+        this.dataUrl=dataUrl;
+
+    }
+
     //method created for the popularMovies
     public void popularMovies(final NetworkListener networkListener){
 
@@ -38,12 +52,13 @@ public class NetworkCommunicator extends BaseActivity {
         client.get(popularUrl,params, new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
+
                 dialogShow(context);
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                dialogDismiss();
+               dialogDismiss();
                 MoviePosterManager popularMoviesManager = new MoviePosterManager(context,responseBody);
                 popularMoviesManager.poster(networkListener);
             }
@@ -86,19 +101,19 @@ public class NetworkCommunicator extends BaseActivity {
         });
     }
 
-    public void movieDetails(final NetworkListener networkListener){
+    public void movieDetails(){
 
         client=new AsyncHttpClient();
 
         RequestParams params = new RequestParams();
         params.put("api_key","efc0d91dd29ee74d0c55029e31266793");
-
-        client.get(topratedUrl,params, new AsyncHttpResponseHandler() {
+        detailUrl=dataUrl+movie_id;
+        client.get(detailUrl,params, new AsyncHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                MoviePosterManager popularMoviesManager = new MoviePosterManager(context,responseBody);
-                popularMoviesManager. poster(networkListener);
+                MovieDetailsManager detailsManager = new MovieDetailsManager(context,responseBody);
+               detailsManager.details();
             }
 
             @Override
