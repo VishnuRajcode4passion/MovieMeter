@@ -13,6 +13,7 @@ import cz.msebera.android.httpclient.Header;
  */
 public class NetworkCommunicator {
 
+ //Variables and class declartions
     private static final String TAG = "NetworkCommunicator";
     AsyncHttpClient client;
     Context context;
@@ -20,14 +21,14 @@ public class NetworkCommunicator {
     String popularUrl;
     String topratedUrl;
 
-
+//Constructor created
     public NetworkCommunicator( Context context, String popularUrl, String topratedUrl) {
 
         this.context = context;
         this.popularUrl = popularUrl;
         this.topratedUrl = topratedUrl;
     }
-
+//method created for the popularMovies
     public void popularMovies(final NetworkListener networkListener){
 
         client=new AsyncHttpClient();
@@ -51,6 +52,8 @@ public class NetworkCommunicator {
             }
         });
     }
+
+ //method created for the Toprated movies
     public void topRatedMovies(final NetworkListener networkListener){
 
         client=new AsyncHttpClient();

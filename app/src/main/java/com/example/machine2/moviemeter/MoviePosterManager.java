@@ -12,7 +12,7 @@ public class MoviePosterManager {
     private static final String TAG = "MoviePosterManager";
     Gson gson;
     MoviesResponse moviesResponse;
-    ImageAdapter imageAdapter;
+    MovieImageAdapter imageAdapter;
     Context context;
     String  responseString;
     byte[] responseBody;
@@ -26,7 +26,7 @@ public class MoviePosterManager {
         gson = new Gson();
         moviesResponse = gson.fromJson(responseString, MoviesResponse.class);
         Log.d(TAG,"response="+moviesResponse);
-        imageAdapter = new ImageAdapter(context,moviesResponse.getResults());
+        imageAdapter = new MovieImageAdapter(context,moviesResponse.getResults());
         networkListener.setImageAdapter(imageAdapter);
     }
 }

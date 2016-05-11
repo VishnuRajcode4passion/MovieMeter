@@ -7,9 +7,11 @@ import android.support.v7.app.AppCompatActivity;
  * Created by machine2 on 09/05/16.
  */
 public class BaseActivity extends AppCompatActivity {
+
     ProgressDialog progressDialog;
 
     public void dialogShow() {
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Processing...");
         progressDialog.setMessage("Please wait.");
@@ -18,6 +20,7 @@ public class BaseActivity extends AppCompatActivity {
         progressDialog.show();
     }
     public void dialogDismiss() {
+
         progressDialog.dismiss();
     }
 
