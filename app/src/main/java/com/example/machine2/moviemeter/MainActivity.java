@@ -9,8 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.GridView;
 
-public class MainActivity extends BaseActivity implements NetworkListener,NavigationView.OnNavigationItemSelectedListener
-{
+public class MainActivity extends BaseActivity implements NetworkListener,NavigationView.OnNavigationItemSelectedListener  {
 
  //variable declaration
     GridView gridView;
@@ -26,8 +25,7 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
     String topratedUrl;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_activity_main);
@@ -57,23 +55,14 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
 //Set the posters on the Gridview
 
     @Override
-<<<<<<< HEAD
     public void setImageAdapter(MovieImageAdapter imageAdapter) {
         gridView.setAdapter(imageAdapter);
-=======
-    public void setImageAdapter(MovieImageAdapter imageAdapter)
-    {
-
-        dialogDismiss();
-        setPosters.setAdapter(imageAdapter);
->>>>>>> 2c14a70f8c848d6fe9055dce2d07c96ca5110ded
 
     }
 //Manages the clicks on the Navigation Menu's
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item)
-    {
+    public boolean onNavigationItemSelected(MenuItem item) {
 
         NavigationMenuSelector menuSelector = new NavigationMenuSelector(this, networkCommunicator,drawer);
         String title = menuSelector.getItem(item);
