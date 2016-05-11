@@ -67,7 +67,7 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
 
     }
 //Manages the clicks on the Navigation Menu's
-    
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
