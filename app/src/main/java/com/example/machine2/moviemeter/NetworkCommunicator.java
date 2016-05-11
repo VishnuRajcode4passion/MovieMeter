@@ -11,7 +11,8 @@ import cz.msebera.android.httpclient.Header;
 /**
  * Created by machine2 on 09/05/16.
  */
-public class NetworkCommunicator {
+public class NetworkCommunicator
+{
 
  //Variables and class declartions
     private static final String TAG = "NetworkCommunicator";
@@ -22,24 +23,28 @@ public class NetworkCommunicator {
     String topratedUrl;
 
 //Constructor created
-    public NetworkCommunicator( Context context, String popularUrl, String topratedUrl) {
+    public NetworkCommunicator( Context context, String popularUrl, String topratedUrl)
+    {
 
         this.context = context;
         this.popularUrl = popularUrl;
         this.topratedUrl = topratedUrl;
     }
 //method created for the popularMovies
-    public void popularMovies(final NetworkListener networkListener){
+    public void popularMovies(final NetworkListener networkListener)
+    {
 
-        client=new AsyncHttpClient();
+        client = new AsyncHttpClient();
 
         RequestParams params = new RequestParams();
         params.put("api_key","efc0d91dd29ee74d0c55029e31266793");
 
-        client.get(popularUrl,params, new AsyncHttpResponseHandler() {
+        client.get(popularUrl,params, new AsyncHttpResponseHandler()
+        {
 
             @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody)
+            {
                 MoviePosterManager popularMoviesManager = new MoviePosterManager(context,responseBody);
                 popularMoviesManager. poster(networkListener);
             }
@@ -54,17 +59,20 @@ public class NetworkCommunicator {
     }
 
  //method created for the Toprated movies
-    public void topRatedMovies(final NetworkListener networkListener){
+    public void topRatedMovies(final NetworkListener networkListener)
+    {
 
         client=new AsyncHttpClient();
 
         RequestParams params = new RequestParams();
         params.put("api_key","efc0d91dd29ee74d0c55029e31266793");
 
-        client.get(topratedUrl,params, new AsyncHttpResponseHandler() {
+        client.get(topratedUrl,params, new AsyncHttpResponseHandler()
+        {
 
             @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody)
+            {
                 MoviePosterManager popularMoviesManager = new MoviePosterManager(context,responseBody);
                 popularMoviesManager. poster(networkListener);
             }

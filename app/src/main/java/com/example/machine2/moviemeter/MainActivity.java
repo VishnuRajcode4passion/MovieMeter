@@ -9,7 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.GridView;
 
-public class MainActivity extends BaseActivity implements NetworkListener,NavigationView.OnNavigationItemSelectedListener  {
+public class MainActivity extends BaseActivity implements NetworkListener,NavigationView.OnNavigationItemSelectedListener
+{
 
  //variable declaration
 
@@ -26,7 +27,8 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
     Toolbar toolbar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_activity_main);
@@ -60,7 +62,8 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
 //Set the posters on the Gridview
 
     @Override
-    public void setImageAdapter(MovieImageAdapter imageAdapter) {
+    public void setImageAdapter(MovieImageAdapter imageAdapter)
+    {
 
         dialogDismiss();
         setPosters.setAdapter(imageAdapter);
@@ -69,7 +72,8 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
 //Manages the clicks on the Navigation Menu's
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item)
+    {
 
         NavigationMenuSelector menuSelector = new NavigationMenuSelector(this, networkCommunicator,drawer);
         String title = menuSelector.getItem(item);

@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * Created by machine2 on 09/05/16.
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity
+{
 
     ProgressDialog progressDialog;
 
-    public void dialogShow() {
+    public void dialogShow()
+    {
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Processing...");
@@ -19,7 +21,8 @@ public class BaseActivity extends AppCompatActivity {
         progressDialog.setIndeterminate(true);
         progressDialog.show();
     }
-    public void dialogDismiss() {
+    public void dialogDismiss()
+    {
 
         progressDialog.dismiss();
     }
