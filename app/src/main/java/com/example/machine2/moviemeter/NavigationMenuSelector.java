@@ -11,13 +11,13 @@ import android.view.MenuItem;
  */
 public class NavigationMenuSelector {
 
-//Variable and class declarations
+   //Variable and class declarations
     Context context;
     NetworkCommunicator networkCommunication;
     DrawerLayout drawer;
     String title;
 
- //The menu selctions in the NavigationDrawer activity
+   //The menu selctions in the NavigationDrawer activity
     public NavigationMenuSelector(Context context, NetworkCommunicator networkCommunication, DrawerLayout drawer) {
         this.context = context;
         this.networkCommunication = networkCommunication;
@@ -39,14 +39,14 @@ public class NavigationMenuSelector {
             networkCommunication.popularMovies((NetworkListener) context);
             title = "Popular";
         }
-        else if (id == R.id.favorite) {
 
-        }
+        else if (id == R.id.favorite) {}
+
         else if (id == R.id.logout) {
 
             drawer.closeDrawer(GravityCompat.START);
             Intent intent = new Intent(context,LoginActivity.class);
-           context.startActivity(intent);
+            context.startActivity(intent);
         }
         return title;
     }

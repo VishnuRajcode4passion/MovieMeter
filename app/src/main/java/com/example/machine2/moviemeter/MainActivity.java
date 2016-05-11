@@ -12,18 +12,17 @@ import android.widget.GridView;
 public class MainActivity extends BaseActivity implements NetworkListener,NavigationView.OnNavigationItemSelectedListener  {
 
  //variable declaration
-
-    GridView setPosters;
+    GridView gridView;
     NavigationView navigationView;
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
+    Toolbar toolbar;
 
     UrlProvider urlProvider;
     NetworkCommunicator networkCommunicator;
 
     String popularUrl;
     String topratedUrl;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +33,10 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-        setPosters = (GridView)findViewById(R.id.gridview);
+        gridView = (GridView)findViewById(R.id.gridview);
         setSupportActionBar(toolbar);
 
- //calling the progress dialog from the Base activty
-
-        dialogShow();
-
+        //calling the progress dialog from the Base activty
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
@@ -49,8 +45,7 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
         popularUrl = urlProvider.popularUrl;
         topratedUrl = urlProvider.topRatedUrl;
 
-//Calling the NetworkCommunicator and pass the Urls as arguments
-
+       //Calling the NetworkCommunicator and pass the Urls as arguments
         networkCommunicator = new NetworkCommunicator(this,popularUrl,topratedUrl);
         networkCommunicator.popularMovies(this);
 
@@ -61,9 +56,7 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
 
     @Override
     public void setImageAdapter(MovieImageAdapter imageAdapter) {
-
-        dialogDismiss();
-        setPosters.setAdapter(imageAdapter);
+        gridView.setAdapter(imageAdapter);
 
     }
 //Manages the clicks on the Navigation Menu's
@@ -75,6 +68,6 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
         String title = menuSelector.getItem(item);
         getSupportActionBar().setTitle(title);
         drawer.closeDrawer(GravityCompat.START);
-        return false;
+        return true;
     }
 }
