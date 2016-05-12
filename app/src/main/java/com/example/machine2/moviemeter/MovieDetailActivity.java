@@ -54,8 +54,8 @@ public class MovieDetailActivity extends AppCompatActivity{
         bundle = getIntent().getExtras();
         movie_id = bundle.getString("id");
         dataUrl = bundle.getString("detailUrls");
-        networkCommunicator=new NetworkCommunicator(this,movie_id,dataUrl);
-        networkCommunicator.movieDetails();
+       // networkCommunicator=new NetworkCommunicator(this,movie_id,dataUrl);
+       // networkCommunicator.movieDetails();
 
     }
 }

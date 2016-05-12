@@ -14,6 +14,7 @@ public class NavigationMenuSelector {
    //Variable and class declarations
     Context context;
     NetworkCommunicator networkCommunication;
+    TopratedMovieManager topratedMovieManager;
     DrawerLayout drawer;
     String title;
 
@@ -30,13 +31,14 @@ public class NavigationMenuSelector {
 
         if (id == R.id.topRated) {
 
-            networkCommunication.topRatedMovies((NetworkListener) context);
-            title = "Top Rated";
+           TopratedMovieManager topratedMovieManager = new TopratedMovieManager(context);
+           topratedMovieManager.MovieManager();
+           title = "Top Rated";
 
         }
         else if (id == R.id.popular) {
 
-            networkCommunication.popularMovies((NetworkListener) context);
+            networkCommunication.posters((MovieListener) context);
             title = "Popular";
         }
 

@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
-public class MainActivity extends BaseActivity implements NetworkListener,NavigationView.OnNavigationItemSelectedListener  {
+public class MainActivity extends BaseActivity implements MovieListener,NavigationView.OnNavigationItemSelectedListener  {
 
  //variable declaration
 
@@ -21,10 +21,9 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
     NavigationView navigationView;
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
-
-    UrlProvider urlProvider;
     NetworkCommunicator networkCommunicator;
-
+    UrlProvider urlProvider;
+    PopularMovieManager popularMovieManager;
     String popularUrl;
     String topratedUrl;
     String detailsUrl;
@@ -53,14 +52,16 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        popularUrl = urlProvider.popularUrl;
+
         topratedUrl = urlProvider.topRatedUrl;
         detailsUrl = urlProvider.movieDetailsUrl;
 
 //Calling the NetworkCommunicator and pass the Urls as arguments
 
-        networkCommunicator = new NetworkCommunicator(this,popularUrl,topratedUrl);
-        networkCommunicator.popularMovies(this);
+     popularMovieManager = new PopularMovieManager(this);
+     popularMovieManager.MovieManager();
+     //networkCommunicator = new NetworkCommunicator();
+
 
         getSupportActionBar().setTitle("Popular");
 

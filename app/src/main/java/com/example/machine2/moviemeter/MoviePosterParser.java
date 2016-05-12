@@ -9,29 +9,30 @@ import com.google.gson.Gson;
  * Created by machine2 on 09/05/16.
  */
 //Manager class of the movie posters
-public class MoviePosterManager
+public class MoviePosterParser
 {
 
-    private static final String TAG = "MoviePosterManager";
+    private static final String TAG = "MoviePosterParser";
     Gson gson;
     MoviesResponse moviesResponse;
     MovieImageAdapter imageAdapter;
     Context context;
     String  responseString;
     byte[] responseBody;
-    public MoviePosterManager(Context context, byte[] responseBody)
+    public MoviePosterParser(Context context, byte[] responseBody)
     {
         this.context = context;
         this.responseBody = responseBody;
     }
 
-    void poster( NetworkListener networkListener)
+    void poster( MovieListener movieListener)
     {
         responseString = new String(responseBody);
         gson = new Gson();
         moviesResponse = gson.fromJson(responseString, MoviesResponse.class);
-        Log.d(TAG,"response = "+moviesResponse);
+      //  Log.d(TAG,"response = "+moviesResponse);
         imageAdapter = new MovieImageAdapter(context,moviesResponse.getResults());
-        networkListener.setImageAdapter(imageAdapter);
+        Log.d(TAG,"response = "+imageAdapter);
+        movieListener.setImageAdapter(imageAdapter);
     }
 }
