@@ -20,6 +20,7 @@ public class BaseActivity extends AppCompatActivity {
         progressDialog.show();
     }
     public void dialogDismiss() {
+
         progressDialog.dismiss();
     }
 }
