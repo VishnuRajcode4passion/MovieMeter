@@ -85,4 +85,29 @@ public class NetworkCommunicator extends BaseActivity {
             }
         });
     }
+
+    public void movieDetails(final NetworkListener networkListener){
+
+        client=new AsyncHttpClient();
+
+        RequestParams params = new RequestParams();
+        params.put("api_key","efc0d91dd29ee74d0c55029e31266793");
+
+        client.get(topratedUrl,params, new AsyncHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                MoviePosterManager popularMoviesManager = new MoviePosterManager(context,responseBody);
+                popularMoviesManager. poster(networkListener);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                NetworkErrors networkErrors = new NetworkErrors();
+                networkErrors.showError(context,statusCode,error);
+            }
+        });
+    }
+
 }

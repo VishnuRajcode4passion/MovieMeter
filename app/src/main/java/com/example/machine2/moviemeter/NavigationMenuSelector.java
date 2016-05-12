@@ -40,7 +40,10 @@ public class NavigationMenuSelector {
             title = "Popular";
         }
 
-        else if (id == R.id.favorite) {}
+        else if (id == R.id.favorite)
+        {
+            title = "Favorite";
+        }
 
         else if (id == R.id.logout) {
 

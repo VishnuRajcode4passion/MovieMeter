@@ -10,7 +10,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/bggrn"
+    android:background="@drawable/greenbg"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.machine2.moviemeter.LoginActivity"
     tools:showIn="@layout/activity_login">
@@ -68,15 +68,6 @@
         android:layout_below="@+id/card_view2"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log In"
-        android:id="@+id/textView7"
-        android:layout_above="@+id/editText4"
-        android:layout_alignStart="@+id/card_view"
-        android:layout_marginBottom="31dp" />
-
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="20dp"
@@ -122,11 +113,11 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:id="@+id/imageView9"
         android:src="@drawable/technology"
-        android:layout_above="@+id/textView7"
-        android:layout_alignEnd="@+id/checkBox" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -138,6 +129,17 @@
         android:layout_above="@+id/imageView6"
         android:layout_alignStart="@+id/card_view2"
         android:layout_alignEnd="@+id/card_view2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MovieMeter"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:id="@+id/textView7"
+        android:layout_below="@+id/imageView9"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

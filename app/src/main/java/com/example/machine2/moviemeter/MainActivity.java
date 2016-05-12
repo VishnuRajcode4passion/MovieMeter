@@ -1,5 +1,6 @@
 package com.example.machine2.moviemeter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -7,22 +8,29 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 public class MainActivity extends BaseActivity implements NetworkListener,NavigationView.OnNavigationItemSelectedListener  {
 
  //variable declaration
-    GridView gridView;
+
+    GridView setPosters;
     NavigationView navigationView;
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
-    Toolbar toolbar;
 
     UrlProvider urlProvider;
     NetworkCommunicator networkCommunicator;
 
     String popularUrl;
     String topratedUrl;
+    String movie_Id;
+    TextView movieId;
+    Toolbar toolbar;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +41,12 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-        gridView = (GridView)findViewById(R.id.gridview);
+        setPosters = (GridView)findViewById(R.id.gridview);
         setSupportActionBar(toolbar);
 
-        //calling the progress dialog from the Base activty
+ //calling the progress dialog from the Base activty
+
+
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
@@ -45,18 +55,34 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
         popularUrl = urlProvider.popularUrl;
         topratedUrl = urlProvider.topRatedUrl;
 
-       //Calling the NetworkCommunicator and pass the Urls as arguments
+//Calling the NetworkCommunicator and pass the Urls as arguments
+
         networkCommunicator = new NetworkCommunicator(this,popularUrl,topratedUrl);
         networkCommunicator.popularMovies(this);
 
         getSupportActionBar().setTitle("Popular");
-    }
 
-//Set the posters on the Gridview
+//Onclick of Gridview
+
+        setPosters.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                movieId = (TextView)view.findViewById(R.id.textView);
+                movie_Id = (String)movieId.getText();
+                intent = new Intent(MainActivity.this,MovieDetailActivity.class);
+                intent.putExtra("id",movie_Id);
+                startActivity(intent);
+
+
+            }
+        });
+    }
 
     @Override
     public void setImageAdapter(MovieImageAdapter imageAdapter) {
-        gridView.setAdapter(imageAdapter);
+
+        dialogDismiss();
+        setPosters.setAdapter(imageAdapter);
 
     }
 //Manages the clicks on the Navigation Menu's
@@ -70,4 +96,6 @@ public class MainActivity extends BaseActivity implements NetworkListener,Naviga
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
