@@ -1,2 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/machine3/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="/Users/machine3/MovieMeter/app/build/intermediates/pre-dexed/debug/httpclient-4.3.6_ba3b16bafb19f79f5a4aed202866972c6c041cf1.jar" />
+    </item>
+    <item
+        jar="/Users/machine3/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.0/7ff0e000d1e27e356567f56c92af3b8ab912636f/picasso-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="7ff0e000d1e27e356567f56c92af3b8ab912636f">
+        <dex dex="/Users/machine3/MovieMeter/app/build/intermediates/pre-dexed/debug/picasso-2.5.0_801af956bac065f2d966eb2826db2d35242e4910.jar" />
+    </item>
+    <item
+        jar="/Users/machine3/MovieMeter/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/Users/machine3/MovieMeter/app/build/intermediates/pre-dexed/debug/com.android.volley-volley-1.0.0_0581ed074d9410338542b402ee3dbdd5771c2943.jar" />
+    </item>
+    <item
+        jar="/Users/machine3/MovieMeter/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/Users/machine3/MovieMeter/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1_ef43fc1e295eddc8a05ac4c8910b2c5288b293a0.jar" />
+    </item>
+    <item
+        jar="/Users/machine3/MovieMeter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/Users/machine3/MovieMeter/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.1.1_e7fdca67be419b94be4427b34a8195784a7fd32b.jar" />
+    </item>
+    <item
+        jar="/Users/machine3/MovieMeter/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/Users/machine3/MovieMeter/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.1.1_a738bf25c6ffc44443a1bb9901aafdad11b3e2a0.jar" />
+    </item>
+    <item
+        jar="/Users/machine3/MovieMeter/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/Users/machine3/MovieMeter/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.1.1_8413283026126aad0f0911f717a1f643fade6051.jar" />
+    </item>
+    <item
+        jar="/Users/machine3/MovieMeter/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Users/machine3/MovieMeter/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.1.1_d5a0b9280ad0fc8e1e557764d7c6806812da7c87.jar" />
+    </item>
+    <item
+        jar="/Users/machine3/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3/5fc52c41ef0239d1093a1eb7c3697036183677ce/gson-2.3.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
+        <dex dex="/Users/machine3/MovieMeter/app/build/intermediates/pre-dexed/debug/gson-2.3_31112e9b2fb4465f3924c13a0c13dbeffeaebf45.jar" />
+    </item>
+    <item
+        jar="/Users/machine3/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/Users/machine3/MovieMeter/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1_c91a4a8b6a200b48f9bb6bf13ebae1e1e2c4a86b.jar" />
+    </item>
+    <item
+        jar="/Users/machine3/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="/Users/machine3/MovieMeter/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.9_2554d541f4c082b32fef0a4342ca969c641cb3f1.jar" />
+    </item>
+    <item
+        jar="/Users/machine3/MovieMeter/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="39ae02ce40c3ac828abbf780ce0ff5d7a28b7d6a">
+        <dex dex="/Users/machine3/MovieMeter/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-23.0.1_e4c9bb8c07538e0e8203056ee6286f08e83ca8bb.jar" />
+    </item>
+
+</items>
