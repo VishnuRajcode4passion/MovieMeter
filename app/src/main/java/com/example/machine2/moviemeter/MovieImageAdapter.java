@@ -90,7 +90,7 @@ public class MovieImageAdapter extends BaseAdapter
 
         //Loading image from  url into imageView
 
-        Picasso.with(context).load(image).resize(394, 400).into(imageView);
+        Picasso.with(context).load(image).resize(394,400).into(imageView);
         movieId.setText(String.valueOf(id));
         return rowView;
     }
