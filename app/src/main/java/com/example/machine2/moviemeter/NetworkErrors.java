@@ -9,7 +9,8 @@ import android.widget.Toast;
 
 //Network problems are shows in this class
 
-public class NetworkErrors {
+public class NetworkErrors
+{
 
     public void showError(Context context, int statusCode, Throwable error)
     {

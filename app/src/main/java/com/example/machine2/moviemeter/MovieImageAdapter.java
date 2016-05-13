@@ -41,7 +41,7 @@ public class MovieImageAdapter extends BaseAdapter
         this.context = context;
         this.results = results;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        posterUrl = urlProvider.posterUrl;
+
 
     }
 
@@ -77,6 +77,7 @@ public class MovieImageAdapter extends BaseAdapter
         View rowView;
         rowView = inflater.inflate(R.layout.single_row_image_adapter, null);
         item = (MoviesResponse.ResultsBean) getItem(position);
+        posterUrl = urlProvider.posterUrl;
 
         movieId = (TextView) rowView.findViewById(R.id.textView);
         imageView = (ImageView) rowView.findViewById(R.id.imageView);

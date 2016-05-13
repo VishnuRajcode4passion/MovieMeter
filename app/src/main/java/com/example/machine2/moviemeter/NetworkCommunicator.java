@@ -11,7 +11,7 @@ import cz.msebera.android.httpclient.Header;
 /**
  * Created by machine2 on 09/05/16.
  */
-public class NetworkCommunicator extends BaseActivity {
+public class NetworkCommunicator  {
 
     //Variables and class declartions
     private static final String TAG = "NetworkCommunicator";
@@ -20,32 +20,35 @@ public class NetworkCommunicator extends BaseActivity {
 
     String popularUrl;
     String topratedUrl;
+    String movie_id;
+    String dataUrl;
+    String detailUrl;
+    String url;
 
-    //Constructor created
-    public NetworkCommunicator( Context context, String popularUrl, String topratedUrl) {
+    MovieDetailActivity movieDetailActivity;
 
-        this.context = context;
-        this.popularUrl = popularUrl;
-        this.topratedUrl = topratedUrl;
+    public NetworkCommunicator( Context context, String popularUrl) {
+
+        this.context=context;
+        this.url=popularUrl;
     }
+
+
     //method created for the popularMovies
-    public void popularMovies(final NetworkListener networkListener){
+    public void posters(final MovieListener movieListener){
 
         client=new AsyncHttpClient();
         RequestParams params = new RequestParams();
         params.put("api_key","efc0d91dd29ee74d0c55029e31266793");
 
-        client.get(popularUrl,params, new AsyncHttpResponseHandler() {
-            @Override
-            public void onStart() {
-                dialogShow(context);
-            }
+        client.get(url,params, new AsyncHttpResponseHandler() {
+
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                dialogDismiss();
-                MoviePosterManager popularMoviesManager = new MoviePosterManager(context,responseBody);
-                popularMoviesManager.poster(networkListener);
+
+                MoviePosterParser popularMoviesManager = new MoviePosterParser(context,responseBody);
+                popularMoviesManager.poster(movieListener);
             }
 
             @Override
@@ -57,32 +60,4 @@ public class NetworkCommunicator extends BaseActivity {
         });
     }
 
-   //method created for the Toprated movies
-    public void topRatedMovies(final NetworkListener networkListener){
-
-        client=new AsyncHttpClient();
-        RequestParams params = new RequestParams();
-        params.put("api_key","efc0d91dd29ee74d0c55029e31266793");
-
-        client.get(topratedUrl,params, new AsyncHttpResponseHandler() {
-
-            @Override
-            public void onStart() {
-                dialogShow(context);
-            }
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                dialogDismiss();
-                MoviePosterManager popularMoviesManager = new MoviePosterManager(context,responseBody);
-                popularMoviesManager.poster(networkListener);
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                NetworkErrors networkErrors = new NetworkErrors();
-                networkErrors.showError(context,statusCode,error);
-            }
-        });
-    }
 }
