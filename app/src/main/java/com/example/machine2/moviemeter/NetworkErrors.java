@@ -12,8 +12,8 @@ import android.widget.Toast;
 public class NetworkErrors
 {
 
-    public void showError(Context context, int statusCode, Throwable error)
+    public void showError(int statusCode, Throwable error)
     {
-        Toast.makeText(context, "Check your network connection " + error, Toast.LENGTH_LONG).show();
+       // Toast.makeText(context, "Check your network connection " + error, Toast.LENGTH_LONG).show();
     }
 }

@@ -16,23 +16,27 @@ public class MoviePosterParser
     Gson gson;
     MoviesResponse moviesResponse;
     MovieImageAdapter imageAdapter;
-    Context context;
     String  responseString;
     byte[] responseBody;
+    MovieListener movieListener;
+    Context context;
+
     public MoviePosterParser(Context context, byte[] responseBody)
     {
-        this.context = context;
         this.responseBody = responseBody;
+        this.movieListener = movieListener;
+        this.context = context;
     }
 
-    void poster( MovieListener movieListener)
+    MovieImageAdapter poster()
     {
         responseString = new String(responseBody);
         gson = new Gson();
         moviesResponse = gson.fromJson(responseString, MoviesResponse.class);
       //  Log.d(TAG,"response = "+moviesResponse);
         imageAdapter = new MovieImageAdapter(context,moviesResponse.getResults());
-        Log.d(TAG,"response = "+imageAdapter);
-        movieListener.setImageAdapter(imageAdapter);
+        Log.d(TAG, "response = " + imageAdapter);
+        //popularMovieListener.setImageAdapter(imageAdapter);
+        return imageAdapter;
     }
 }

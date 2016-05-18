@@ -21,8 +21,8 @@ public class TopratedMovieManager {
     public void MovieManager()
     {
         topRatedUrl = urlProvider.topRatedUrl;
-        networkCommunicator = new NetworkCommunicator(context,topRatedUrl);
-        networkCommunicator.posters((MovieListener) context);
+      //  networkCommunicator = new NetworkCommunicator(topRatedUrl);
+   //     networkCommunicator.posters((MovieListener) context);
     }
 
 }

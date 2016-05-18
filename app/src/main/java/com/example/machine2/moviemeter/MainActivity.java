@@ -1,36 +1,22 @@
 package com.example.machine2.moviemeter;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
 
-public class MainActivity extends BaseActivity implements MovieListener,NavigationView.OnNavigationItemSelectedListener  {
+public class MainActivity extends BaseActivity implements MovieListener  {
 
  //variable declaration
-
-    GridView setPosters;
+    GridView gridView;
     NavigationView navigationView;
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
     NetworkCommunicator networkCommunicator;
-    UrlProvider urlProvider;
     PopularMovieManager popularMovieManager;
-    String popularUrl;
-    String topratedUrl;
-    String detailsUrl;
-    String movie_Id;
-    TextView movieId;
     Toolbar toolbar;
-    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,64 +27,31 @@ public class MainActivity extends BaseActivity implements MovieListener,Navigati
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-        setPosters = (GridView)findViewById(R.id.gridview);
+        gridView = (GridView)findViewById(R.id.gridview);
         setSupportActionBar(toolbar);
 
  //calling the progress dialog from the Base activty
-
+        dialogShow(this);
 
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
-
-
-        topratedUrl = urlProvider.topRatedUrl;
-        detailsUrl = urlProvider.movieDetailsUrl;
+        navigationView.setNavigationItemSelectedListener(new NavigationItemSelected());
 
 //Calling the NetworkCommunicator and pass the Urls as arguments
 
-     popularMovieManager = new PopularMovieManager(this);
-     popularMovieManager.MovieManager();
-     //networkCommunicator = new NetworkCommunicator();
-
+        popularMovieManager = new PopularMovieManager(this);
+        popularMovieManager.movieManager();
 
         getSupportActionBar().setTitle("Popular");
 
 //Onclick of Gridview
-
-        setPosters.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                movieId = (TextView)view.findViewById(R.id.textView);
-                movie_Id = (String)movieId.getText();
-                intent = new Intent(MainActivity.this,MovieDetailActivity.class);
-                intent.putExtra("id",movie_Id);
-                intent.putExtra("detailUrls",detailsUrl);
-                startActivity(intent);
-
-
-            }
-        });
+        gridView.setOnItemClickListener(new GridviewClick());
     }
 
     @Override
     public void setImageAdapter(MovieImageAdapter imageAdapter) {
-
-        setPosters.setAdapter(imageAdapter);
-
+        dialogDismiss();
+        gridView.setAdapter(imageAdapter);
     }
-//Manages the clicks on the Navigation Menu's
-
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-
-        NavigationMenuSelector menuSelector = new NavigationMenuSelector(this, networkCommunicator,drawer);
-        String title = menuSelector.getItem(item);
-        getSupportActionBar().setTitle(title);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-
 }

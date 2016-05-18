@@ -35,7 +35,7 @@ public class MovieImageAdapter extends BaseAdapter
 
     private static LayoutInflater inflater = null;
 
-    public MovieImageAdapter(Context context, List<MoviesResponse.ResultsBean> results)
+    public MovieImageAdapter(Context context,List<MoviesResponse.ResultsBean> results)
     {
         // TODO Auto-generated constructor stub
         this.context = context;

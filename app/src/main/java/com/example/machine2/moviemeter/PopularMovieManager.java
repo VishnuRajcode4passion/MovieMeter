@@ -1,27 +1,29 @@
 package com.example.machine2.moviemeter;
 
+import android.content.Context;
+
 /**
  * Created by machine2 on 12/05/16.
  */
-public class PopularMovieManager  {
+public class PopularMovieManager implements PopularMovieListener  {
 
-    MainActivity mainActivity;
-    UrlProvider urlProvider;
-    String popularUrl;
-
+    PopularMovieListener popularMovieListener;
+    MovieListener movieListener;
     NetworkCommunicator networkCommunicator;
+    Context context;
 
-        public PopularMovieManager(MainActivity mainActivity) {
-
-        this.mainActivity=mainActivity;
-
-    }
-    public void MovieManager()
-    {
-        popularUrl = urlProvider.popularUrl;
-        networkCommunicator = new NetworkCommunicator(mainActivity,popularUrl);
-        networkCommunicator.posters(mainActivity);
+    public PopularMovieManager(Context context) {
+        this.context = context;
+        this.movieListener = (MovieListener) context;
     }
 
+    public void movieManager() {
+        networkCommunicator = new NetworkCommunicator(context,UrlProvider.popularUrl);
+        networkCommunicator.posters(this);
+    }
 
+    @Override
+    public void setPopularImageAdapter(MovieImageAdapter imageAdapter) {
+         movieListener.setImageAdapter(imageAdapter);
+    }
 }

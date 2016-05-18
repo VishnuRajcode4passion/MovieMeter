@@ -16,26 +16,19 @@ public class NetworkCommunicator  {
     //Variables and class declartions
     private static final String TAG = "NetworkCommunicator";
     AsyncHttpClient client;
-    Context context;
-
-    String popularUrl;
-    String topratedUrl;
-    String movie_id;
-    String dataUrl;
-    String detailUrl;
     String url;
+    Context context;
+    MoviePosterParser moviePosterParser;
+    MovieImageAdapter imageAdapter;
 
-    MovieDetailActivity movieDetailActivity;
 
-    public NetworkCommunicator( Context context, String popularUrl) {
-
-        this.context=context;
-        this.url=popularUrl;
+    public NetworkCommunicator(Context context,String url) {
+        this.url=url;
+        this.context = context;
     }
 
-
-    //method created for the popularMovies
-    public void posters(final MovieListener movieListener){
+    //method created for the Movies
+    public void posters(final PopularMovieListener popularMovieListener){
 
         client=new AsyncHttpClient();
         RequestParams params = new RequestParams();
@@ -43,21 +36,21 @@ public class NetworkCommunicator  {
 
         client.get(url,params, new AsyncHttpResponseHandler() {
 
-
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
 
-                MoviePosterParser popularMoviesManager = new MoviePosterParser(context,responseBody);
-                popularMoviesManager.poster(movieListener);
+              //  MoviePosterParser moviePosterParser = new MoviePosterParser(responseBody);
+                moviePosterParser = new MoviePosterParser(context,responseBody);
+                imageAdapter = moviePosterParser.poster();
+                popularMovieListener.setPopularImageAdapter(imageAdapter);
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 //Toast.makeText(context,"NETWORK ERROR " + error,Toast.LENGTH_LONG).show();
                 NetworkErrors networkErrors = new NetworkErrors();
-                networkErrors.showError(context,statusCode,error);
+                networkErrors.showError(statusCode,error);
             }
         });
     }
-
 }

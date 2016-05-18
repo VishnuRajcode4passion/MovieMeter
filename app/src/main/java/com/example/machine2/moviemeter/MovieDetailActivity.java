@@ -1,7 +1,10 @@
 package com.example.machine2.moviemeter;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -10,7 +13,7 @@ import android.widget.TextView;
 /**
  * Created by machine2 on 11/05/16.
  */
-public class MovieDetailActivity extends AppCompatActivity{
+public class MovieDetailActivity  extends MainActivity{
 
 //variable declaration
 
@@ -42,7 +45,11 @@ public class MovieDetailActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail_page);
+    //    setContentView(R.layout.detail_page);
+        LayoutInflater inflater = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.detail_page, null, false);
+        drawer.addView(contentView, 0);
 
         releaseYear = (TextView)findViewById(R.id.year_of_relese);
         movieRating = (TextView)findViewById(R.id.rating);
