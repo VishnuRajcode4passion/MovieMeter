@@ -7,9 +7,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.widget.GridView;
 
-public class MainActivity extends BaseActivity implements MovieListener  {
+public class MainActivity extends BaseActivity implements MovieListener {
 
- //variable declaration
+    //variable declaration
     GridView gridView;
     NavigationView navigationView;
     DrawerLayout drawer;
@@ -17,6 +17,7 @@ public class MainActivity extends BaseActivity implements MovieListener  {
     NetworkCommunicator networkCommunicator;
     PopularMovieManager popularMovieManager;
     Toolbar toolbar;
+    PopularMovieListener popularMovieListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +28,10 @@ public class MainActivity extends BaseActivity implements MovieListener  {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-        gridView = (GridView)findViewById(R.id.gridview);
+        gridView = (GridView) findViewById(R.id.gridview);
         setSupportActionBar(toolbar);
 
- //calling the progress dialog from the Base activty
+        //calling the progress dialog from the Base activty
         dialogShow(this);
 
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -40,8 +41,10 @@ public class MainActivity extends BaseActivity implements MovieListener  {
 
 //Calling the NetworkCommunicator and pass the Urls as arguments
 
-        popularMovieManager = new PopularMovieManager(this);
-        popularMovieManager.movieManager();
+//        popularMovieManager = new PopularMovieManager(this);
+//        popularMovieManager.movieManager();
+        popularMovieListener = new PopularMovieManager();
+        popularMovieListener.movieManager(this);
 
         getSupportActionBar().setTitle("Popular");
 

@@ -11,7 +11,7 @@ import cz.msebera.android.httpclient.Header;
 /**
  * Created by machine2 on 09/05/16.
  */
-public class NetworkCommunicator  {
+public class NetworkCommunicator {
 
     //Variables and class declartions
     private static final String TAG = "NetworkCommunicator";
@@ -22,34 +22,34 @@ public class NetworkCommunicator  {
     MovieImageAdapter imageAdapter;
 
 
-    public NetworkCommunicator(Context context,String url) {
-        this.url=url;
+    public NetworkCommunicator(Context context, String url) {
+        this.url = url;
         this.context = context;
     }
 
     //method created for the Movies
-    public void posters(final PopularMovieListener popularMovieListener){
+    public void posters(final PopularMovieListener popularMovieListener) {
 
-        client=new AsyncHttpClient();
+        client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
-        params.put("api_key","efc0d91dd29ee74d0c55029e31266793");
+        params.put("api_key", "efc0d91dd29ee74d0c55029e31266793");
 
-        client.get(url,params, new AsyncHttpResponseHandler() {
+        client.get(url, params, new AsyncHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
 
-              //  MoviePosterParser moviePosterParser = new MoviePosterParser(responseBody);
-                moviePosterParser = new MoviePosterParser(context,responseBody);
+                //  MoviePosterParser moviePosterParser = new MoviePosterParser(responseBody);
+                moviePosterParser = new MoviePosterParser(context, responseBody);
                 imageAdapter = moviePosterParser.poster();
-                popularMovieListener.setPopularImageAdapter(imageAdapter);
+                popularMovieListener.getPopularImages(imageAdapter);
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 //Toast.makeText(context,"NETWORK ERROR " + error,Toast.LENGTH_LONG).show();
                 NetworkErrors networkErrors = new NetworkErrors();
-                networkErrors.showError(statusCode,error);
+                networkErrors.showError(statusCode, error);
             }
         });
     }
