@@ -38,7 +38,7 @@ public class NavigationMenuSelector {
         }
         else if (id == R.id.popular) {
 
-      //    PopularMovieManager  popularMovieManager = new PopularMovieManager(context);
+      //    MovieManager  popularMovieManager = new MovieManager(context);
         //    popularMovieManager.movieManager();
             title = "Popular";
         }

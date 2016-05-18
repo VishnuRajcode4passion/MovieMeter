@@ -22,7 +22,7 @@ public class TopratedMovieManager {
     {
         topRatedUrl = urlProvider.topRatedUrl;
       //  networkCommunicator = new NetworkCommunicator(topRatedUrl);
-   //     networkCommunicator.posters((MovieListener) context);
+   //     networkCommunicator.posters((MovieAdapter) context);
     }
 
 }

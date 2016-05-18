@@ -1,11 +1,11 @@
 package com.example.machine2.moviemeter;
 
+import android.content.Context;
+
 /**
- * Created by machine2 on 09/05/16.
+ * Created by machine3 on 5/17/16.
  */
-//Interface Declared for Managing Posters of the Movies
-
 public interface MovieListener {
-
-    void setImageAdapter(MovieImageAdapter imageAdapter);
+    void getPopularImages(MovieImageAdapter imageAdapter);
+    void movieManager(Context context);
 }

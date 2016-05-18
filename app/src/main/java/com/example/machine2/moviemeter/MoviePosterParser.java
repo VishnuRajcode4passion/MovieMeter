@@ -17,12 +17,12 @@ public class MoviePosterParser {
     MovieImageAdapter imageAdapter;
     String responseString;
     byte[] responseBody;
-    MovieListener movieListener;
+    MovieAdapter movieAdapter;
     Context context;
 
     public MoviePosterParser(Context context, byte[] responseBody) {
         this.responseBody = responseBody;
-        this.movieListener = movieListener;
+        this.movieAdapter = movieAdapter;
         this.context = context;
     }
 
@@ -33,7 +33,7 @@ public class MoviePosterParser {
         //  Log.d(TAG,"response = "+moviesResponse);
         imageAdapter = new MovieImageAdapter(context, moviesResponse.getResults());
         Log.d(TAG, "response = " + imageAdapter);
-        //popularMovieListener.setImageAdapter(imageAdapter);
+        //movieListener.setImageAdapter(imageAdapter);
         return imageAdapter;
     }
 }

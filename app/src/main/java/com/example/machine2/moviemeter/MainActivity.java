@@ -7,7 +7,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.widget.GridView;
 
-public class MainActivity extends BaseActivity implements MovieListener {
+public class MainActivity extends BaseActivity implements MovieAdapter {
 
     //variable declaration
     GridView gridView;
@@ -15,9 +15,8 @@ public class MainActivity extends BaseActivity implements MovieListener {
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
     NetworkCommunicator networkCommunicator;
-    PopularMovieManager popularMovieManager;
     Toolbar toolbar;
-    PopularMovieListener popularMovieListener;
+    MovieListener movieListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +38,13 @@ public class MainActivity extends BaseActivity implements MovieListener {
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(new NavigationItemSelected());
 
-//Calling the NetworkCommunicator and pass the Urls as arguments
-
-//        popularMovieManager = new PopularMovieManager(this);
-//        popularMovieManager.movieManager();
-        popularMovieListener = new PopularMovieManager();
-        popularMovieListener.movieManager(this);
+        //Calling the NetworkCommunicator and pass the Urls as arguments
+        movieListener = new MovieManager();
+        movieListener.movieManager(this);
 
         getSupportActionBar().setTitle("Popular");
 
-//Onclick of Gridview
+        //Onclick of Gridview
         gridView.setOnItemClickListener(new GridviewClick());
     }
 

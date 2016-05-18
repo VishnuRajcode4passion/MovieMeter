@@ -21,14 +21,13 @@ public class NetworkCommunicator {
     MoviePosterParser moviePosterParser;
     MovieImageAdapter imageAdapter;
 
-
     public NetworkCommunicator(Context context, String url) {
         this.url = url;
         this.context = context;
     }
 
     //method created for the Movies
-    public void posters(final PopularMovieListener popularMovieListener) {
+    public void posters(final MovieListener movieListener) {
 
         client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
@@ -38,11 +37,10 @@ public class NetworkCommunicator {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-
-                //  MoviePosterParser moviePosterParser = new MoviePosterParser(responseBody);
+                
                 moviePosterParser = new MoviePosterParser(context, responseBody);
                 imageAdapter = moviePosterParser.poster();
-                popularMovieListener.getPopularImages(imageAdapter);
+                movieListener.getPopularImages(imageAdapter);
             }
 
             @Override
